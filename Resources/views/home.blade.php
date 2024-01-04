@@ -5,12 +5,13 @@
 
     <x-std tpl='container'>
         @php($featured=$_theme->getFeaturedArticles())
+
         @if ($featured->isNotEmpty())
             <h2 class="mt-8 text-2xl">Featured posts</h2>
 
             <div class="mt-10 grid gap-8 grid-cols-1 lg:grid-cols-2">
-                @foreach ($featured as $post)
-                    <x-article.card :post="$post" tpl='v2'></x-article.card>
+                @foreach ($featured as $article)
+                    <x-article.card :article="$article" tpl='v2'></x-article.card>
                 @endforeach
             </div>
         @endif
