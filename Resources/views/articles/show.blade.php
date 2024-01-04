@@ -18,9 +18,9 @@
             <hr>
 
             <x-article.meta :article="$article" />
-            {{--
+
             <x-article.footer :blocks="$article->footer_blocks" />
-                --}}
+
         </div>
     </x-std>
 </div>
