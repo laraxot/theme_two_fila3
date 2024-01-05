@@ -12,14 +12,14 @@
     <x-std tpl='container'>
         <div class="prose mt-8 mx-auto text-black">
             @if ($article->content_blocks)
-                <x-render.blocks :blocks="$article->content_blocks" />
+                <x-render.blocks :blocks="$article->content_blocks" :model="$article" />
             @endif
 
             <hr>
 
             <x-article.meta :article="$article" />
 
-            <x-article.footer :blocks="$article->footer_blocks" />
+            <x-article.footer :article="$article" :blocks="$article->footer_blocks" />
 
         </div>
     </x-std>
