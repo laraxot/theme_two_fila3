@@ -2,9 +2,9 @@
 
 namespace App\Livewire;
 
-use Livewire\Component;
 use App\Models\Category;
 use App\Models\Post;
+use Livewire\Component;
 
 class PostList extends Component
 {
@@ -15,8 +15,11 @@ class PostList extends Component
 
     // Variables keeping track of the current post query
     public $postCount;
+
     public $postChunks;
+
     public $queryCount = 0;
+
     public $currentChunk = 0;
 
     // Currently selected category

@@ -11,8 +11,8 @@ use Pboivin\FilamentPeek\Pages\Concerns\HasPreviewModal;
 
 trait HasPostPreview
 {
-    use HasPreviewModal;
     use HasBuilderPreview;
+    use HasPreviewModal;
 
     protected function getActions(): array
     {

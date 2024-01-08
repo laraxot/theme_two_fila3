@@ -8,8 +8,11 @@ use Livewire\Component;
 class ContactForm extends Component
 {
     public $name;
+
     public $email;
+
     public $message;
+
     public $quiz;
 
     protected $rules = [
@@ -32,6 +35,7 @@ class ContactForm extends Component
 
         if ((string) $this->quiz !== '7') {
             $this->addError('quiz', 'The answer is not correct');
+
             return;
         }
 

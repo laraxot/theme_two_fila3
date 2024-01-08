@@ -46,7 +46,7 @@ class PageResource extends Resource
             Forms\Components\Actions::make([
                 InlinePreviewAction::make()
                     ->label('Open Content Editor')
-                    ->builderName('content')
+                    ->builderName('content'),
             ])
                 ->columnSpanFull()
                 ->alignEnd(),

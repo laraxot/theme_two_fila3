@@ -23,7 +23,7 @@ return [
         ],
         'simple' => ['heading', 'hr', 'bullet-list', 'ordered-list', 'checked-list', '|', 'bold', 'italic', 'lead', 'small', '|', 'link', 'media'],
         'minimal' => ['bold', 'italic', 'link', 'bullet-list', 'ordered-list'],
-        'none' => []
+        'none' => [],
     ],
 
     /*
@@ -33,7 +33,7 @@ return [
     |
     */
     'media_action' => FilamentTiptapEditor\Actions\MediaAction::class,
-//    'media_action' => Awcodes\Curator\Actions\MediaAction::class,
+    //    'media_action' => Awcodes\Curator\Actions\MediaAction::class,
     'link_action' => FilamentTiptapEditor\Actions\LinkAction::class,
 
     /*
@@ -78,5 +78,5 @@ return [
     */
     'disable_floating_menus' => true,
     'disable_bubble_menus' => true,
-    'floating_menu_tools' => ['media', 'grid', 'grid-builder', 'details', 'table', 'oembed', 'code-block']
+    'floating_menu_tools' => ['media', 'grid', 'grid-builder', 'details', 'table', 'oembed', 'code-block'],
 ];

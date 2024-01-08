@@ -59,7 +59,7 @@ class PostResource extends Resource
                 Forms\Components\Actions::make([
                     InlinePreviewAction::make()
                         ->label('Preview Content Blocks')
-                        ->builderName('content_blocks')
+                        ->builderName('content_blocks'),
                 ])
                     ->columnSpanFull()
                     ->alignRight(),
@@ -73,7 +73,7 @@ class PostResource extends Resource
                 Forms\Components\Actions::make([
                     InlinePreviewAction::make()
                         ->label('Open Footer Editor')
-                        ->builderName('footer_blocks')
+                        ->builderName('footer_blocks'),
                 ])
                     ->columnSpanFull()
                     ->alignRight(),
