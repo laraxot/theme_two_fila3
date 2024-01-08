@@ -8,16 +8,15 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>{{ $title ? "$title — " : '' }}{{ config('app.name') }}</title>
-        {{--
+
         @vite(['resources/css/app.css'])
-        --}}
-        <link crossorigin="anonymous" media="all" rel="stylesheet" href="{{ $_theme->asset('pub_theme::dist/assets/app.css') }}" />
+
         @livewireStyles
     </head>
     <body class="bg-white">
         <div class="flex flex-col min-h-screen">
             <header class="bg-black text-white">
-                <x-std tpl='container'>
+                <x-container>
                     <nav class="main-nav flex items-center">
                         @if ($siteName)
                             <div class="text-2xl">
@@ -27,7 +26,7 @@
 
                         <x-menu name="main" />
                     </nav>
-                </x-std >
+                </x-container>
             </header>
 
             <main>
@@ -37,12 +36,12 @@
             <div class="mt-16"></div>
 
             <footer class="mt-auto text-center">
-                <x-std tpl='container' class="text-gray-700">
+                <x-container class="text-gray-700">
                     <div class="flex flex-col lg:flex-row items-center justify-center space-x-4">
                         <span>Copyright © {{ date('Y') }} ACME inc.</span>
                         <x-menu name="footer" />
                     </div>
-                </x-std>
+                </x-container>
             </footer>
         </div>
 
