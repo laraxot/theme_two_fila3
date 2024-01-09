@@ -4,4 +4,7 @@ package-lock.json
 package-lock.json
 .git-rewrite/
 .php-cs-fixer.cache
+<<<<<<< HEAD
 node_modules
+=======
+>>>>>>> dev
