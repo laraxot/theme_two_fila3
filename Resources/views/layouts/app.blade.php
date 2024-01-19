@@ -11,8 +11,15 @@
         {{--
         @vite(['resources/css/app.css'])
         --}}
-        <link crossorigin="anonymous" media="all" rel="stylesheet" href="{{ $_theme->asset('pub_theme::dist/assets/app.css') }}" />
         @livewireStyles
+
+        <link crossorigin="anonymous" media="all" rel="stylesheet" href="{{ $_theme->asset('pub_theme::dist/assets/theme.css') }}" />
+        <link crossorigin="anonymous" media="all" rel="stylesheet" href="{{ $_theme->asset('pub_theme::dist/assets/app.css') }}" />
+
+        {{--
+        @vite(['Resources/css/filament/admin/theme.css','Resources/css/app.css'],'themes/Two/dist')
+        --}}
+
     </head>
     <body class="bg-white">
         <div class="flex flex-col min-h-screen">
@@ -45,7 +52,11 @@
                 </x-std>
             </footer>
         </div>
-
         @livewireScripts
+
+        <script src="{{ $_theme->asset('pub_theme::dist/assets/app2.js') }}" ></script>
+        {{--
+        @vite('Resources/js/app.js','../laravel/Themes/Two/Resources/dist')
+        --}}
     </body>
 </html>
