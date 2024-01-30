@@ -1,52 +1,66 @@
-@php
-    use Filament\Support\Enums\MaxWidth;
-@endphp
+@props([
+    'title' => '',
+    'siteName' => config('app.name'),
+])
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{{ $title ? "$title — " : '' }}{{ config('app.name') }}</title>
+        {{--
+        @vite(['resources/css/app.css'])
 
-<x-filament-panels::layout.base :livewire="$livewire">
-    @props([
-        'after' => null,
-        'heading' => null,
-        'subheading' => null,
-    ])
+        @livewireStyles
+        --}}
+        @filamentStyles
+        <link crossorigin="anonymous" media="all" rel="stylesheet" href="{{ $_theme->asset('pub_theme::dist/assets/theme.css') }}" />
+        <link crossorigin="anonymous" media="all" rel="stylesheet" href="{{ $_theme->asset('pub_theme::dist/assets/app.css') }}" />
 
-    <div class="fi-simple-layout flex min-h-screen flex-col items-center">
-        @if (filament()->auth()->check())
-            <div
-                class="absolute end-0 top-0 flex h-16 items-center gap-x-4 pe-4 md:pe-6 lg:pe-8"
-            >
-                @if (filament()->hasDatabaseNotifications())
-                    @livewire(Filament\Livewire\DatabaseNotifications::class, ['lazy' => true])
-                @endif
+        {{--
+        @vite(['Resources/css/filament/admin/theme.css','Resources/css/app.css'],'themes/Two/dist')
+        --}}
 
-                <x-filament-panels::user-menu />
-            </div>
-        @endif
+    </head>
+    <body class="bg-white">
+        <div class="flex flex-col min-h-screen">
+            <header class="bg-black text-white">
+                <x-std tpl='container'>
+                    <nav class="main-nav flex items-center">
+                        @if ($siteName)
+                            <div class="text-2xl">
+                                <a href="/">{{ $siteName }}</a>
+                            </div>
+                        @endif
 
-        <div
-            class="fi-simple-main-ctn flex w-full flex-grow items-center justify-center"
-        >
-            <main
-                @class([
-                    'fi-simple-main my-16 w-full bg-white px-6 py-12 shadow-sm ring-1 ring-gray-950/5 sm:rounded-xl sm:px-12 dark:bg-gray-900 dark:ring-white/10',
-                    match ($maxWidth ?? null) {
-                        MaxWidth::ExtraSmall, 'xs' => 'sm:max-w-xs',
-                        MaxWidth::Small, 'sm' => 'sm:max-w-sm',
-                        MaxWidth::Medium, 'md' => 'sm:max-w-md',
-                        MaxWidth::ExtraLarge, 'xl' => 'sm:max-w-xl',
-                        MaxWidth::TwoExtraLarge, '2xl' => 'sm:max-w-2xl',
-                        MaxWidth::ThreeExtraLarge, '3xl' => 'sm:max-w-3xl',
-                        MaxWidth::FourExtraLarge, '4xl' => 'sm:max-w-4xl',
-                        MaxWidth::FiveExtraLarge, '5xl' => 'sm:max-w-5xl',
-                        MaxWidth::SixExtraLarge, '6xl' => 'sm:max-w-6xl',
-                        MaxWidth::SevenExtraLarge, '7xl' => 'sm:max-w-7xl',
-                        default => 'sm:max-w-lg',
-                    },
-                ])
-            >
-                {{ $slot }}
+                        <x-menu name="main" />
+                    </nav>
+                </x-std >
+            </header>
+
+            <main>
+                {!! $slot ?? '' !!}
             </main>
-        </div>
 
-        {{ \Filament\Support\Facades\FilamentView::renderHook('panels::footer') }}
-    </div>
-</x-filament-panels::layout.base>
+            <div class="mt-16"></div>
+
+            <footer class="mt-auto text-center">
+                <x-std tpl='container' class="text-gray-700">
+                    <div class="flex flex-col lg:flex-row items-center justify-center space-x-4">
+                        <span>Copyright © {{ date('Y') }} ACME inc.</span>
+                        <x-menu name="footer" />
+                    </div>
+                </x-std>
+            </footer>
+        </div>
+        {{--
+        @livewireScripts
+        --}}
+        @filamentScripts
+
+        <script src="{{ $_theme->asset('pub_theme::dist/assets/app2.js') }}" ></script>
+        {{--
+        @vite('Resources/js/app.js','../laravel/Themes/Two/Resources/dist')
+        --}}
+    </body>
+</html>
