@@ -13,9 +13,16 @@
 
         @livewireStyles
         --}}
+
+        <style>
+            [x-cloak] {
+                display: none !important;
+            }
+        </style>
         @filamentStyles
-        <link crossorigin="anonymous" media="all" rel="stylesheet" href="{{ $_theme->asset('pub_theme::dist/assets/theme.css') }}" />
-        <link crossorigin="anonymous" media="all" rel="stylesheet" href="{{ $_theme->asset('pub_theme::dist/assets/app.css') }}" />
+        @vite(['Resources/css/filament/admin/theme.css', 'Resources/css/app.css'], 'themes/Two/dist')
+        {{-- <link crossorigin="anonymous" media="all" rel="stylesheet" href="{{ $_theme->asset('pub_theme::dist/assets/theme.css') }}" />
+        <link crossorigin="anonymous" media="all" rel="stylesheet" href="{{ $_theme->asset('pub_theme::dist/assets/app.css') }}" /> --}}
 
         {{--
         @vite(['Resources/css/filament/admin/theme.css','Resources/css/app.css'],'themes/Two/dist')
@@ -56,9 +63,12 @@
         {{--
         @livewireScripts
         --}}
-        @filamentScripts
+        @livewire('notifications')
 
-        <script src="{{ $_theme->asset('pub_theme::dist/assets/app2.js') }}" ></script>
+        @filamentScripts
+        @vite(['Resources/js/app.js'], 'themes/Two/dist')
+
+        {{-- <script src="{{ $_theme->asset('pub_theme::dist/assets/app2.js') }}" ></script> --}}
         {{--
         @vite('Resources/js/app.js','../laravel/Themes/Two/Resources/dist')
         --}}

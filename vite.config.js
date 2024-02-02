@@ -1,9 +1,11 @@
 import { defineConfig } from 'vite';
-import laravel, { refreshPaths } from 'laravel-vite-plugin'
+// import laravel, { refreshPaths } from 'laravel-vite-plugin'
+import laravel from 'laravel-vite-plugin';
 
 export default defineConfig({
     build: {
-        outDir: __dirname + '/Resources/dist',
+        // outDir: __dirname + '/Resources/dist',
+        outDir: './Resources/dist',
         emptyOutDir: false,
         manifest: true,
         rollupOptions: {
@@ -24,7 +26,7 @@ export default defineConfig({
                 __dirname + '/Resources/js/app.js',
             ],
             refresh: [
-                ...refreshPaths,
+                // ...refreshPaths,
                 'app/Livewire/**',
             ],
         }),

@@ -4,7 +4,7 @@
     </div>
 
     <x-std tpl='container'>
-        @php($featured=$_theme->getFeaturedArticles())
+        {{-- @php($featured=$_theme->getFeaturedArticles())
 
         @if ($featured->isNotEmpty())
             <h2 class="mt-8 text-2xl">Featured posts</h2>
@@ -14,6 +14,7 @@
                     <x-article.card :article="$article" tpl='v2'></x-article.card>
                 @endforeach
             </div>
-        @endif
+        @endif --}}
+        {{ $_theme->showPageContent('home') }}
     </x-std>
 </div>
