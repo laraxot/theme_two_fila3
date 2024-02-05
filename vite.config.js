@@ -1,39 +1,40 @@
-import { defineConfig } from 'vite';
-import {laravel,  refreshPaths } from 'laravel-vite-plugin'
-//import laravel from 'laravel-vite-plugin';
+import { defineConfig } from 'vite'
+import laravel, { refreshPaths } from 'laravel-vite-plugin'
+
 
 export default defineConfig({
-    build: {
-        // outDir: __dirname + '/Resources/dist',
-        outDir: './Resources/dist',
-        emptyOutDir: false,
-        manifest: true,
-        rollupOptions: {
-            output: {
-              entryFileNames: `assets/[name].js`,
-              chunkFileNames: `assets/[name].js`,
-              assetFileNames: `assets/[name].[ext]`
-            }
-          }
+	build: {
+		//outDir: '../../../public_html/themes/One',
+		outDir: './Resources/dist',
+		emptyOutDir: false,
+		manifest: true,
+		rollupOptions: {
+			output: {
+				entryFileNames: `assets/[name].js`,
+				chunkFileNames: `assets/[name].js`,
+				assetFileNames: `assets/[name].[ext]`
+			}
+		}
+	},
+    ssr:{
+        noExternal: ['chart.js/**']
     },
-    plugins: [
-        laravel({
-           // publicDirectory: '../../public',
-           // buildDirectory: 'build-two',
-            input: [
-               // __dirname + '/Resources/css/filament/admin/theme.css',
-                __dirname + '/Resources/css/app.css',
-                __dirname + '/Resources/js/app.js',
-            ],
-            refresh: [
-                 ...refreshPaths,
+	plugins: [
+		laravel({
+			publicDirectory: '../../../public_html/',
+			// buildDirectory: 'assets/',
+			input: [
+				__dirname + '/Resources/sass/app.scss',
+
+                //__dirname + '/Resources/css/app.css',
+				__dirname + '/Resources/js/app.js',
+				//__dirname + '/Resources/css/filament/admin/theme.css'
+			],
+			refresh: [
+                ...refreshPaths,
                 'app/Livewire/**',
             ],
-        }),
-    ],
+		}),
+	],
 });
 
-//export const paths = [
-//    'Modules/$STUDLY_NAME$/resources/assets/sass/app.scss',
-//    'Modules/$STUDLY_NAME$/resources/assets/js/app.js',
-//];
