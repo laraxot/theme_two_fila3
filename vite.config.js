@@ -1,6 +1,6 @@
 import { defineConfig } from 'vite';
-// import laravel, { refreshPaths } from 'laravel-vite-plugin'
-import laravel from 'laravel-vite-plugin';
+import {laravel,  refreshPaths } from 'laravel-vite-plugin'
+//import laravel from 'laravel-vite-plugin';
 
 export default defineConfig({
     build: {
@@ -21,12 +21,12 @@ export default defineConfig({
            // publicDirectory: '../../public',
            // buildDirectory: 'build-two',
             input: [
-                __dirname + '/Resources/css/filament/admin/theme.css',
+               // __dirname + '/Resources/css/filament/admin/theme.css',
                 __dirname + '/Resources/css/app.css',
                 __dirname + '/Resources/js/app.js',
             ],
             refresh: [
-                // ...refreshPaths,
+                 ...refreshPaths,
                 'app/Livewire/**',
             ],
         }),
