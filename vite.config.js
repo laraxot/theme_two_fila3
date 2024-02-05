@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite'
 import laravel, { refreshPaths } from 'laravel-vite-plugin'
+//import laravel from 'laravel-vite-plugin';
 
 
 export default defineConfig({
@@ -24,16 +25,17 @@ export default defineConfig({
 			publicDirectory: '../../../public_html/',
 			// buildDirectory: 'assets/',
 			input: [
-				__dirname + '/Resources/sass/app.scss',
-
-                //__dirname + '/Resources/css/app.css',
+				//__dirname + '/Resources/sass/app.scss',
+                __dirname + '/Resources/css/filament/admin/theme.css',
+                __dirname + '/Resources/css/app.css',
 				__dirname + '/Resources/js/app.js',
-				//__dirname + '/Resources/css/filament/admin/theme.css'
+
 			],
-			refresh: [
-                ...refreshPaths,
-                'app/Livewire/**',
-            ],
+            refresh: true,
+			//refresh: [
+            //    ...refreshPaths,
+            //    'app/Livewire/**',
+            //],
 		}),
 	],
 });

@@ -22,7 +22,7 @@
         <!-- Fonts -->
         <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
         @filamentStyles
-        @vite(['Resources/sass/app.scss'],'themes/Two/dist')
+        @vite(['Resources/css/app.css'],'themes/Two/dist')
 
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
